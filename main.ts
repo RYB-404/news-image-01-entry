@@ -3,12 +3,12 @@
 // A news-poster that sums up Friday 13 November 2026's world news in one
 // 1024x1024 image: a "WORLD NEWS" masthead dated 13 November 2026, seven
 // color-blocked stories (one per region) with big bitmap headlines, and a
-// bottom ticker with four more one-line items.
+// bottom ticker with two more one-line items.
 //
 // Everything the image says is vendored data: news.json is a snapshot of the
-// day's headline facts gathered at build time (see REPORT.md for sources).
-// The program is pure Node standard library, offline and deterministic —
-// two runs write identical bytes.
+// day's headline facts gathered at build time (per-story sources are listed
+// inside news.json). The program is pure Node standard library, offline and
+// deterministic — two runs write identical bytes.
 //
 // Rendering: layout shapes (cards, chips, rules, plane) are drawn with signed
 // distance fields, supersampled 3x and box-downscaled for clean anti-aliasing;
@@ -33,7 +33,6 @@ const NEWS = JSON.parse(
 const W = 1024;
 const H = 1024;
 const SS = 3; // supersampling factor for SDF shapes
-const AA = W * SS; // coverage sharpness for a 1-SS-pixel anti-aliased edge
 
 // ------------------------------------------------------------------- colors
 function hx(s) {
@@ -173,9 +172,9 @@ function makeConvex(pts) {
 }
 
 const shapes = [];
-// shape coordinates are PIXELS; one subpixel = 1/SS px, so edge coverage must
-// ramp over +-1/SS px (K = SS) for a 1-subpixel anti-aliased edge
-function marginFor() { return 1.6 / SS + 0.001; }
+// shape coordinates are PIXELS; one subpixel = 1/SS px, so an SDF edge's
+// coverage must ramp over +-1/SS px for a one-subpixel anti-aliased transition
+const SHAPE_MARGIN = 1.6 / SS + 0.001; // bounding-box slack: rr dilation + AA ramp
 function addShape(x0, y0, x1, y1, f) {
   shapes.push({ x0, y0, x1, y1, f });
 }
@@ -186,7 +185,7 @@ function addShape(x0, y0, x1, y1, f) {
 // visual bounds and rr is the corner radius.
 function convexShape(pts, rr, color, alpha = 1) {
   const f = makeConvex(pts);
-  const m = rr + marginFor();
+  const m = rr + SHAPE_MARGIN;
   let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
   for (const p of pts) {
     x0 = Math.min(x0, p[0]); x1 = Math.max(x1, p[0]);
@@ -225,7 +224,9 @@ const SCALE_CHIP = 2, SCALE_HEAD = 5, SCALE_SUB = 3;
 const SCALE_DATE = 4, SCALE_MAST = 11, SCALE_HERO = 6, SCALE_TICK = 3;
 
 // ---------------------------------------------------------------- scene build
-// masthead
+// masthead: dateline bottom-left, red "WORLD EDITION" kicker top-right, a thin
+// ink rule, the centered "WORLD NEWS" title with its last four glyphs overdrawn
+// in red, then the thick red rule that caps the hero card below
 drawText(NEWS.dateLine, MX, DATE_Y, SCALE_DATE, INK);
 drawText(NEWS.kicker, RIGHT - textWidth(NEWS.kicker, SCALE_DATE), DATE_Y, SCALE_DATE, RED);
 roundedRect(MX, RULE1_Y, RIGHT, RULE1_Y + 2, 0, INK);
@@ -239,13 +240,13 @@ const hero = NEWS.stories[0];
 const heroColor = hx(hero.color);
 roundedRect(HERO_X, HERO_Y, HERO_X + HERO_W, HERO_Y + HERO_H, 14, heroColor);
 {
-  const hx0 = HERO_X + 24;
+  const tx = HERO_X + 24;
   const label = hero.region;
   const chipW = textWidth(label, SCALE_CHIP) + 20;
-  roundedRect(hx0, HERO_Y + 16, hx0 + chipW, HERO_Y + 40, 5, WHITE);
-  drawText(label, hx0 + 10, HERO_Y + 21, SCALE_CHIP, heroColor);
-  drawText(hero.headline[0], hx0, HERO_Y + 46, SCALE_HERO, WHITE);
-  drawText(hero.sub, hx0, HERO_Y + 94, SCALE_SUB, WHITE, 0.88);
+  roundedRect(tx, HERO_Y + 16, tx + chipW, HERO_Y + 40, 5, WHITE);
+  drawText(label, tx + 10, HERO_Y + 21, SCALE_CHIP, heroColor);
+  drawText(hero.headline[0], tx, HERO_Y + 46, SCALE_HERO, WHITE);
+  drawText(hero.sub, tx, HERO_Y + 94, SCALE_SUB, WHITE, 0.88);
   // paper-plane icon, white on red, with a fold notch + speed dashes
   const T = [958, 247], A = [856, 219], B = [856, 275];
   convexShape([T, A, B], 3, WHITE);
