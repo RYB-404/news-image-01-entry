@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-13",
+  "dayName": "Friday",
+  "title": "WORLD NEWS",
+  "dateLine": "FRIDAY · 13 NOVEMBER 2026",
+  "kicker": "WORLD EDITION",
+  "gathered": "2026-11-14",
+  "note": "Vendored snapshot of 13 November 2026 world news, gathered at build time from public sources. Facts are headline-level summaries; each story lists its sources.",
+  "stories": [
+    {
+      "id": "us-faa-ground-stop",
+      "region": "UNITED STATES",
+      "color": "#B71C1C",
+      "headline": ["US HALTS ALL FLIGHTS"],
+      "sub": "FAA GROUND STOP: NATIONWIDE COMMS FAILURE",
+      "fact": "The FAA issued a rare nationwide ground stop for all US flights on 13 November 2026 citing 'extraordinary circumstances involving communications failures'; it was lifted after about four hours, with delays stretching into the weekend.",
+      "sources": ["Reuters", "Bloomberg", "CNBC", "Wikipedia: 2026 FAA communication outage"]
+    },
+    {
+      "id": "russia-ukraine-drones",
+      "region": "RUSSIA-UKRAINE",
+      "color": "#1A237E",
+      "headline": ["RUSSIA HIT BY", "1,198 DRONES"],
+      "sub": "BIGGEST POW SWAP LOOMS",
+      "fact": "Russia said its air defenses downed 1,198 Ukrainian drones overnight across many regions, one of Ukraine's largest aerial attacks of the war, hitting a Lukoil refinery in Volgograd; US-brokered peace talks are days away and Zelensky announced plans for the largest-ever prisoner exchange.",
+      "sources": ["Mercury News (2026-11-13)", "Al Jazeera", "TASS"]
+    },
+    {
+      "id": "iran-bahrain-radar",
+      "region": "MIDDLE EAST",
+      "color": "#B93A0E",
+      "headline": ["IRAN HITS", "BAHRAIN RADAR"],
+      "sub": "US SAYS NO DAMAGE",
+      "fact": "Iran's IRGC claimed it struck and destroyed a US early-warning radar in Bahrain, calling it retaliation for a US strike on telecom infrastructure at Sirik; the US military denied any hit or damage and said it shot down two Iranian drones headed toward Bahrain.",
+      "sources": ["Reuters (2026-11-13)", "The Hindu", "Associated Press"]
+    },
+    {
+      "id": "nvidia-ceo-exit",
+      "region": "TECH",
+      "color": "#0D47A1",
+      "headline": ["NVIDIA CEO OUT", "IN SPY SCANDAL"],
+      "sub": "SHAREHOLDER SUIT FILED",
+      "fact": "Nvidia co-founder Jensen Huang resigned as CEO (exit confirmed 12 November) after reports that US officials suspected a former romantic partner of being a Chinese agent; on 13 November a proposed shareholder class action was filed and the stock rebounded about 5% as the board opened an investigation. CFO Colette Kress is acting CEO.",
+      "sources": ["Reuters", "Yahoo Finance (2026-11-13)", "Al Jazeera", "Benzinga markets roundup 2026-11-13"]
+    },
+    {
+      "id": "india-bus-crash",
+      "region": "INDIA",
+      "color": "#00695C",
+      "headline": ["BUS CRASH", "KILLS 24"],
+      "sub": "IN GOLAGHAT, ASSAM",
+      "fact": "A bus-truck collision in Golaghat, Assam, India, killed 24 people and injured 11 others.",
+      "sources": ["Al Jazeera", "Wikipedia: Portal Current events 2026 November 13"]
+    },
+    {
+      "id": "kenya-building-collapse",
+      "region": "KENYA",
+      "color": "#6A1B9A",
+      "headline": ["BUILDING FALLS", "IN NAIROBI"],
+      "sub": "6 DEAD, 5 INJURED",
+      "fact": "A partially collapsing under-construction building in Nairobi, Kenya, killed six people and injured five more.",
+      "sources": ["Xinhua", "Wikipedia: Portal Current events 2026 November 13"]
+    },
+    {
+      "id": "cop31-antalya",
+      "region": "CLIMATE",
+      "color": "#2E7D32",
+      "headline": ["COP31 CLIMATE", "TALKS UNDERWAY"],
+      "sub": "200 NATIONS IN ANTALYA",
+      "fact": "COP31 in Antalya, Türkiye (9-20 November) entered its final stretch as negotiators from nearly 200 countries worked through 100+ agreements on climate finance and emissions.",
+      "sources": ["UN COP31", "Reuters", "Carbon Brief"]
+    }
+  ],
+  "ticker": [
+    ["ALSO:", " NOLA CRUISE SINKS · PARAGUAY CRISIS"],
+    ["MSFT:", " OUTAGE ENDS AFTER A DAY"]
+  ],
+  "ticker_notes": "New Orleans: tanker Atlantic Asphalt struck the docked river cruise boat American Heritage on the Mississippi on 13 November 2026 (collision 18:29 UTC); the boat sank/partially submerged and roughly 130 aboard were rescued with no deaths (CNN, WWL-TV). Paraguay: Ueno Bank intervention crisis since 3 November - about 3 million frozen accounts, protests, president brought down; government bid to restore confidence ongoing 13 November (CNN, The Conversation, Wikipedia: 2026 Paraguay banking crisis). Microsoft: global Azure configuration-change outage hit Microsoft 365 (Outlook/Teams, up to ~430M users) from 12 November; Microsoft reported broad recovery on 13 November (Al Jazeera, Reuters). Guatemala (dropped): US designated three Guatemalan criminal groups as FTOs (El Pais, 2026-11-13). Bangladesh (dropped): garment-worker minimum-wage deal (Reuters/NYT). Doomsday (dropped): von Foerster's 1960 Science paper predicted world population reaching infinity on 13 November 2026, a Friday the 13th; population is just over 8 billion (ABC/Popular Science retrospectives)."
+}

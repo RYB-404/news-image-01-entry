@@ -1,0 +1,9 @@
+/*
+!/main.ts
+!/news.json
+!/LICENSE
+!/README.md
+!/.gitignore
+!/.makefun/
+.makefun/*
+!/.makefun/owner.json
